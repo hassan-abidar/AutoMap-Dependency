@@ -13,22 +13,13 @@
     <version>0.0.1</version>
     <name>AutoMap Dependency</name>
     <description>A lightweight dependency for automatic object mapping in Spring applications.</description>
-    <url/>
-    <licenses>
-        <license/>
-    </licenses>
-    <developers>
-        <developer/>
-    </developers>
-    <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
-    </scm>
+    <url>https://github.com/hassan-abidar/AutoMap-Dependency</url>
+    <packaging>jar</packaging> <!-- Explicitly specify packaging as JAR -->
+
     <properties>
         <java.version>21</java.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -45,7 +36,7 @@
     <distributionManagement>
         <repository>
             <id>github</id>
-            <url>https://maven.pkg.github.com/hassan-abidar/AutoMap-Dependency.git</url>
+            <url>https://maven.pkg.github.com/hassan-abidar/AutoMap-Dependency</url>
         </repository>
     </distributionManagement>
 
@@ -55,7 +46,25 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <!-- Add the Maven Deploy Plugin for publishing -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.1.1</version>
+            </plugin>
         </plugins>
     </build>
 
+    <repositories>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/hassan-abidar/AutoMap-Dependency</url>
+        </repository>
+    </repositories>
+
+    <scm>
+        <connection>scm:git:git://github.com/hassan-abidar/AutoMap-Dependency.git</connection>
+        <developerConnection>scm:git:ssh://github.com/hassan-abidar/AutoMap-Dependency.git</developerConnection>
+        <url>https://github.com/hassan-abidar/AutoMap-Dependency</url>
+    </scm>
 </project>

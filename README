@@ -1,57 +1,58 @@
-AutoMap: A Lightweight Dependency for Automatic Object Mapping in Spring Applications
-AutoMap is a lightweight and easy-to-use dependency designed to simplify object mapping in Spring applications. With AutoMap, you can automatically map fields between DTOs (Data Transfer Objects) and entities using simple annotations, eliminating the need for manual mapping code.
+# AutoMap: A Lightweight Dependency for Automatic Object Mapping in Spring Applications
 
-Features
-Annotation-Based Mapping: Use @AutoMap to define how fields should be mapped.
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![GitHub Stars](https://img.shields.io/github/stars/hassan-abidar/AutoMap-Dependency?style=social)](https://github.com/hassan-abidar/AutoMap-Dependency)
 
-Nested Object Mapping: Automatically map nested objects (e.g., User with Address).
+AutoMap is a lightweight and easy-to-use dependency designed to simplify object mapping in Spring applications. With AutoMap, you can automatically map fields between **DTOs (Data Transfer Objects)** and **entities** using simple annotations, eliminating the need for manual mapping code.
 
-Custom Converters: Define custom converters for fields that require special handling.
+## Features
 
-Collection Mapping: Support for mapping collections like List, Set, and Map.
+- **Annotation-Based Mapping**: Use `@AutoMap` to define how fields should be mapped.
+- **Nested Object Mapping**: Automatically map nested objects (e.g., `User` with `Address`).
+- **Custom Converters**: Define custom converters for fields that require special handling.
+- **Collection Mapping**: Support for mapping collections like `List`, `Set`, and `Map`.
+- **Conditional Mapping**: Map fields only if certain conditions are met.
+- **Field Exclusion**: Exclude specific fields from being mapped.
+- **Bidirectional Mapping**: Map objects in both directions (e.g., `User` to `UserDTO` and vice versa).
+- **Validation Support**: Validate fields during mapping (e.g., `@NotNull`, `@Size`).
+- **Lightweight**: No heavy dependencies—just pure Java reflection.
+- **Easy Integration**: Works seamlessly with Spring Boot applications.
 
-Conditional Mapping: Map fields only if certain conditions are met.
 
-Field Exclusion: Exclude specific fields from being mapped.
+## Installation
 
-Bidirectional Mapping: Map objects in both directions (e.g., User to UserDTO and vice versa).
+### Maven
+Add the following dependency to your `pom.xml`:
 
-Validation Support: Validate fields during mapping (e.g., @NotNull, @Size).
-
-Lightweight: No heavy dependencies—just pure Java reflection.
-
-Easy Integration: Works seamlessly with Spring Boot applications.
-
-Installation
-Maven
-Add the following dependency to your pom.xml:
-
-xml
-Copy
+```xml
 <dependency>
     <groupId>hassan.abidar</groupId>
     <artifactId>automap</artifactId>
     <version>0.0.1</version>
 </dependency>
-Run HTML
-Gradle
-Add the following dependency to your build.gradle:
 
-groovy
-Copy
 dependencies {
     implementation 'hassan.abidar:automap:0.0.1'
 }
-Quick Start
-1. Add the Dependency
+
+
+
+---
+
+#### 4. **Quick Start**
+- Provide a simple example to help users get started quickly.
+
+```markdown
+## Quick Start
+
+### 1. Add the Dependency
 Add the AutoMap dependency to your project as shown above.
 
-2. Annotate Your Classes
-Use the @AutoMap annotation to define how fields should be mapped.
+### 2. Annotate Your Classes
+Use the `@AutoMap` annotation to define how fields should be mapped.
 
-Example: Entity to DTO
-java
-Copy
+#### Example: Entity to DTO
+```java
 @AutoMap(target = UserDTO.class)
 public class User {
     private Long id;
@@ -64,11 +65,8 @@ public class UserDTO {
     private String name;
     private String email;
 }
-3. Use the Mapper
-AutoMap will automatically map fields between the source and target objects.
 
-java
-Copy
+
 User user = new User();
 user.setId(1L);
 user.setName("John Doe");
@@ -76,13 +74,23 @@ user.setEmail("john.doe@example.com");
 
 UserDTO userDTO = AutoMapper.map(user, UserDTO.class);
 System.out.println(userDTO.getName()); // Output: John Doe
-Advanced Usage
-Nested Object Mapping
+
+
+
+
+---
+
+#### 5. **Advanced Usage**
+- Provide examples of more advanced features for experienced users.
+
+```markdown
+## Advanced Usage
+
+### Nested Object Mapping
 AutoMap can handle nested objects automatically.
 
-Example:
-java
-Copy
+#### Example:
+```java
 @AutoMap(target = UserDTO.class)
 public class User {
     private Long id;
@@ -95,12 +103,8 @@ public class UserDTO {
     private String name;
     private AddressDTO address; // Nested DTO
 }
-Custom Converters
-Define custom converters for fields that require special handling.
 
-Example:
-java
-Copy
+
 @AutoMap(target = UserDTO.class, customConverter = DateToStringConverter.class)
 public class User {
     private Long id;
@@ -113,51 +117,34 @@ public class UserDTO {
     private String name;
     private String birthDate; // Converted to String
 }
-Conditional Mapping
-Map fields only if certain conditions are met.
 
-Example:
-java
-Copy
-@AutoMap(target = UserDTO.class, condition = "name != null")
-public class User {
-    private Long id;
-    private String name;
-    private String email;
-}
-Field Exclusion
-Exclude specific fields from being mapped.
 
-Example:
-java
-Copy
-@AutoMap(target = UserDTO.class, excludeFields = {"password"})
-public class User {
-    private Long id;
-    private String name;
-    private String password; // Excluded from mapping
-}
-Contributing
+
+---
+
+#### 6. **Contributing**
+- Encourage contributions and provide guidelines.
+
+```markdown
+## Contributing
+
 We welcome contributions to AutoMap! If you'd like to contribute, please follow these steps:
 
-Fork the repository.
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix.
+3. Make your changes and write tests.
+4. Submit a pull request with a detailed description of your changes.
 
-Create a new branch for your feature or bugfix.
-
-Make your changes and write tests.
-
-Submit a pull request with a detailed description of your changes.
-
-Acknowledgments
-Thanks to the Spring and Java communities for their incredible tools and libraries.
+For more information, see our [Contributing Guidelines](CONTRIBUTING.md).
 
 
-About the Author
-Hi, I'm Hassan Abidar, a software engineer passionate about building tools that make developers' lives easier. You can connect with me on LinkedIn or check out my other projects on GitHub.
+## About the Author
 
-Star the Repository ⭐
+Hi, I'm **Hassan Abidar**, a software engineer passionate about building tools that make developers' lives easier. You can connect with me on [LinkedIn](https://www.linkedin.com/in/hassan-abidar/) or check out my other projects on [GitHub](https://github.com/hassan-abidar).
+
+
+## Star the Repository ⭐
+
 If you find AutoMap useful, please consider giving it a star on GitHub! Your support helps us grow the project and improve it for everyone.
 
-GitHub Stars
-
-Happy mapping! 🚀
+[![GitHub Stars](https://img.shields.io/github/stars/hassan-abidar/AutoMap-Dependency?style=social)](https://github.com/hassan-abidar/AutoMap-Dependency)
